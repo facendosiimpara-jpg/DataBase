@@ -10,3 +10,30 @@ CREATE TABLE "studente" (
     "sezione" VARCHAR(2) NOT NULL
     );
 
+CREATE TABLE domande (   
+    "id_domande" INT PRIMARY KEY,
+    "argomento" VARCHAR(255) NOT NULL,
+    "tipo" VARCHAR(30) NOT NULL,
+    "testo" DATE
+    );
+
+CREATE TABLE compito_in_classe (   
+    "id_compito" INT PRIMARY KEY,
+    "tipo" VARCHAR(255) NOT NULL,
+    "materia" VARCHAR(30) NOT NULL
+    );
+
+CREATE TABLE fare (   
+    "id_fare" INT PRIMARY KEY,
+    "data" DATE NOT NULL,
+    "voto" INT NOT NULL,
+    "matricola" INT NOT NULL,
+    "id_compito" INT NOT NULL
+    );
+
+
+CREATE TABLE compisto (   
+    "id_composto" INT PRIMARY KEY,
+    "id_compito" INT NOT NULL,
+    "id_domande" INT NOT NULL
+    );
