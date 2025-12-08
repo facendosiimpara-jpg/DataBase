@@ -1,39 +1,50 @@
 Creare tabella: 
 
-CREATE TABLE "studente" (   
-    "matricola" INT PRIMARY KEY,
-    "cognome" VARCHAR(30) NOT NULL,
-    "nome" VARCHAR(30) NOT NULL,
-    "data_di_nascita" DATE,
-    "luogo_di_nascita" VARCHAR(100),
-    "classe" INT NOT NULL,
-    "sezione" VARCHAR(2) NOT NULL
+CREATE TABLE studente (   
+    matricola INT PRIMARY KEY,
+    cognome VARCHAR(30) NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    data_di_nascita DATE,
+    luogo_di_nascita VARCHAR(100),
+    classe INT NOT NULL,
+    sezione VARCHAR(2) NOT NULL
+    );
+
+CREATE TABLE studente (   
+    matricola INT NOT NULL AUTO_INCREMENT,
+    cognome VARCHAR(30) NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    data_di_nascita DATE,
+    luogo_di_nascita VARCHAR(100),
+    classe INT NOT NULL,
+    sezione VARCHAR(2) NOT NULL,
+    PRIMARY KEY (matricola)
     );
 
 CREATE TABLE domande (   
-    "id_domande" INT PRIMARY KEY,
-    "argomento" VARCHAR(255) NOT NULL,
-    "tipo" VARCHAR(30) NOT NULL,
-    "testo" DATE
+    id_domande INT PRIMARY KEY,
+    argomento VARCHAR(255) NOT NULL,
+    tipo VARCHAR(30) NOT NULL,
+    testo DATE
     );
 
 CREATE TABLE compito_in_classe (   
-    "id_compito" INT PRIMARY KEY,
-    "tipo" VARCHAR(255) NOT NULL,
-    "materia" VARCHAR(30) NOT NULL
+    id_compito INT PRIMARY KEY,
+    tipo VARCHAR(255) NOT NULL,
+    materia VARCHAR(30) NOT NULL
     );
 
 CREATE TABLE fare (   
-    "id_fare" INT PRIMARY KEY,
-    "data" DATE NOT NULL,
-    "voto" INT NOT NULL,
-    "matricola" INT NOT NULL,
-    "id_compito" INT NOT NULL
+    id_fare INT PRIMARY KEY,
+    data DATE NOT NULL,
+    voto INT NOT NULL,
+    matricola INT NOT NULL,
+    id_compito INT NOT NULL
     );
 
 
 CREATE TABLE compisto (   
-    "id_composto" INT PRIMARY KEY,
-    "id_compito" INT NOT NULL,
-    "id_domande" INT NOT NULL
+    id_composto INT PRIMARY KEY,
+    id_compito INT NOT NULL,
+    id_domanda INT NOT NULL
     );
