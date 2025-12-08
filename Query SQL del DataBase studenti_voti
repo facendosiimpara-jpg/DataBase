@@ -1,7 +1,12 @@
 Creare tabella: 
-CREATE TABLE "T_Fornitori" (   
-    "IDFornitore" INT PRIMARY KEY,
-    "Nominativo" VARCHAR(100),
-    "Indirizzo" VARCHAR(100),
-    "Città" VARCHAR(50)
+
+CREATE TABLE "studente" (   
+    "matricola" INT PRIMARY KEY,
+    "cognome" VARCHAR(30) NOT NULL,
+    "nome" VARCHAR(30) NOT NULL,
+    "data_di_nascita" DATE,
+    "luogo_di_nascita" VARCHAR(100),
+    "classe" INT NOT NULL,
+    "sezione" VARCHAR(2) NOT NULL
     );
+
