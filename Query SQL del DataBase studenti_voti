@@ -1,0 +1,7 @@
+Creare tabella: 
+CREATE TABLE "T_Fornitori" (   
+    "IDFornitore" INT PRIMARY KEY,
+    "Nominativo" VARCHAR(100),
+    "Indirizzo" VARCHAR(100),
+    "Città" VARCHAR(50)
+    );
