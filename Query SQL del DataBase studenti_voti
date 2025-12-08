@@ -48,3 +48,11 @@ CREATE TABLE compisto (
     id_compito INT NOT NULL,
     id_domanda INT NOT NULL
     );
+
+CREATE TABLE fare (   
+    id_fare INT PRIMARY KEY,
+    data DATE NOT NULL,
+    voto INT NOT NULL,
+    matricola INT NOT NULL CONSTRAINT FK_MATRICOLA REFERENCES studente(matricola),
+    id_compito INT NOT NULL
+    );
