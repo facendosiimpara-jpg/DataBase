@@ -58,7 +58,7 @@ CREATE TABLE fare (
     );
 
 
-CREATE TABLE compisto (   
+CREATE TABLE composto (   
     id_composto INT PRIMARY KEY,
     id_compito INT NOT NULL,
     id_domanda INT NOT NULL
@@ -91,3 +91,13 @@ VALUES
 (7, 'Rosa',    'Viola',   '2008-05-31', 'Roma',   4, 'H'),
 (8, 'Lipidi',  'Alessio', '2008-07-06', 'Genova', 4, 'H'),
 (9, 'Erba',    'Fiore',   '2008-07-07', 'Roma',   3, 'C');
+
+Aggiungere una colonna
+ALTER TABLE studdenti
+ADD citta_id INT;
+
+ora diventa chiave esterna
+ALTER TABLE studdenti
+ADD CONSTRAINT fk_citta_id
+FOREIGN KEY (citta_id)
+REFERENCES citta(id);
