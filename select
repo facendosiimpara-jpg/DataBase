@@ -1,0 +1,53 @@
+select* from Studente;
+In base non trova la tabella perché il nome viene visto tutto in maiuscolo. Per funzionare devo mettere le virgolette
+
+select* from "Studente";
+select* from "Studente" order by "cognome"; ordinata per cognome
+select* from "Studente" order by "cognome" desc; ordinata per cognome in ordine decrescente
+
+per avere tutti gli studenti nati a Roma
+select * from "Studente" where "luogo_di_nascita"='Roma'; Selezione cio prendere solo alcune righe
+SELECT "Tipo", "Testo" FROM "Domande" WHERE "Argomento" = 'Database'; proiezione prendere alcune colonne
+select * from "Studente" where "luogo_di_nascita"='Roma'and "classe"=3;
+select * from "Studente" where  "classe"<3;
+select * from "Studente" where  "classe">=3;
+
+
+La parola chiave DISTINCT ci permette di non avere duplicati
+select DISTINCT "luogo_di_nascita" from "Studente";
+
+select DISTINCT "luogo_di_nascita" as citta from "Studente";
+select DISTINCT S."luogo_di_nascita" as citta from "Studente" as S;
+
+creare una nuova tabella da una preesistente
+select* into allievi from "Studente";
+select * into stud_biennio from "Studente" where  "classe"<=2;
+
+Vediamo il JOIN SELECT NELLA RELAZIONE TRA TABELLE - JOIN IMPLICITO
+
+select T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1, "fare" as T2; realizza il prodotto cartesiano
+
+select T1.Matricola,T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1, "fare" as T2
+where T1.Matricola = T2.Matricola;
+
+OPPURE
+select T1.Matricola,T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1 INNER JOIN "fare" as T2
+ON T1.Matricola = T2.Matricola;
+
+
+select T1.Matricola,T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1, "fare" as T2
+where T1.Matricola = T2.Matricola and T2."voto"=6;  per avere studenti con voto 6;
+
+select T1.Matricola,T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1, "fare" as T2
+where T1.Matricola = T2.Matricola and T2."voto" between 4 and 6;  BETWEEN
+
+select T1.Matricola,T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1, "fare" as T2
+where T1.Matricola = T2.Matricola and T1."classe" IN (2,4); IN
+
+select T1.Matricola,T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1 LEFT JOIN "fare" as T2
+ON T1.Matricola = T2.Matricola; left join MI VISUALIZZA ANCHE GLI STUDENTI CHE NON HANNO VOTI
+
+select T1.Matricola,T1."cognome",T1."nome",T1."classe", T2."voto" from "Studente" as T1 RIGHT JOIN "fare" as T2
+ON T1.Matricola = T2.Matricola; RIGHT MI VISUALIZZEREBBE ANCHE I COMPITI A CUI NON ABBIAMO ASSOCIATO UNA MATRICOLA - PER NOI IMPOSSIBILE
+
+select * from "Studente" WHERE "data_di_nascita" IS NULL;
